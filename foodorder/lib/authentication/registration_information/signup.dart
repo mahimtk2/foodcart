@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodorder/authentication/loginform/fbgooglebutton.dart';
 import 'package:foodorder/authentication/loginform/formfield.dart';
 import 'package:foodorder/authentication/loginform/signinbutton.dart';
-
-class LogIn extends StatelessWidget {
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,14 +32,14 @@ class LogIn extends StatelessWidget {
               BoxFormField(),
              Padding(
           padding: EdgeInsets.only(left: 190),
-          child: InkWell(
-            child: Text(
-              "Forgot Password",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
-            ),
-            onTap: () {},
-          ),
+          // child: InkWell(
+          //   child: Text(
+          //     "Forgot Password",
+          //     style:
+          //         TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
+          //   ),
+          //   onTap: () {},
+          // ),
         ),
         SizedBox(
           height: 20,
@@ -49,7 +48,7 @@ class LogIn extends StatelessWidget {
         SizedBox(
           height: 0,
         ),
-        Fa_Gooogle_Btn(fb: "Sign In",goo: "Sign In",),
+        Fa_Gooogle_Btn(fb: "Sign Up",goo: "Sign Up",),
         SizedBox(
           height: 35,
         ),
@@ -58,11 +57,11 @@ class LogIn extends StatelessWidget {
           child: Container(
             child: Row(
               children: [
-                Text("New in FoodCart App?",
+                Text(" Am I Alrady Exist?",
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 InkWell(
                   onTap: () {},
-                  child: Text("Sign Up",
+                  child: Text("Sign In",
                       style: TextStyle(
                           color: Colors.green,
                           fontWeight: FontWeight.bold,

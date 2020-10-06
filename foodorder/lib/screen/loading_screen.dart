@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodorder/authentication/log_in_page.dart';
+import 'package:foodorder/authentication/registration_information/signup.dart';
 import 'package:foodorder/home/mainPage.dart';
 import 'package:sk_onboarding_screen/sk_onboarding_model.dart';
 import 'package:sk_onboarding_screen/sk_onboarding_screen.dart';
@@ -28,7 +29,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
         },
         getStartedClicked: (value) {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => LogIn()));
+              context, MaterialPageRoute(builder: (context) => SignUp()));
         },
       ),
     );

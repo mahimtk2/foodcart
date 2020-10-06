@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+
 class Fa_Gooogle_Btn extends StatefulWidget {
+  final String fb, goo;
+  Fa_Gooogle_Btn({@required this.fb, @required this.goo});
   @override
   _Fa_Gooogle_BtnState createState() => _Fa_Gooogle_BtnState();
 }
@@ -26,7 +29,7 @@ class _Fa_Gooogle_BtnState extends State<Fa_Gooogle_Btn> {
                               backgroundColor: Colors.white,
                               backgroundImage:
                                   AssetImage("assets/facebook.png")),
-                          Text("Sign In With \n Facebook ")
+                          Text(widget.fb+" With\n Facebook ")
                         ],
                       ),
                     )),
@@ -48,7 +51,7 @@ class _Fa_Gooogle_BtnState extends State<Fa_Gooogle_Btn> {
                               backgroundColor: Colors.white,
                               backgroundImage:
                                   AssetImage("assets/google.webp")),
-                          Text("Sign In With\n Google ")
+                          Text(widget.goo+" With\n Google ")
                         ],
                       ),
                     )),
