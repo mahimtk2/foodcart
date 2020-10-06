@@ -6,7 +6,7 @@ import 'package:splash_screen_view/SplashScreenView.dart';
 void main() {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "What you want bit's only",
+      title: "Food Cart",
        home: SplashScreenView(
       home: HomePage(),
       duration: 5000,
