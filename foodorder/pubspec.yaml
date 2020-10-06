@@ -55,6 +55,8 @@ flutter:
      - assets/img3.PNG
      - assets/img4.PNG
      - assets/image1.jpg
+     - assets/facebook.png
+     - assets/google.webp
   #   - images/a_dot_ham.jpeg
 
 
