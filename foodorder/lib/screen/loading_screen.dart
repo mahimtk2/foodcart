@@ -27,8 +27,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
           value.endsWith(pages.last.toString());
         },
         getStartedClicked: (value) {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => LOgIn()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LogIn()));
         },
       ),
     );
