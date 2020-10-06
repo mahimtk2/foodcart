@@ -1,96 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:foodorder/home/home.dart';
-import 'package:introduction_screen/introduction_screen.dart';
+import 'package:foodorder/authentication/log_in_page.dart';
+import 'package:foodorder/home/mainPage.dart';
+import 'package:sk_onboarding_screen/sk_onboarding_model.dart';
+import 'package:sk_onboarding_screen/sk_onboarding_screen.dart';
 
-
-class OnBoardingPage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _OnBoardingPageState createState() => _OnBoardingPageState();
+  State<StatefulWidget> createState() {
+    return HomePageState();
+  }
 }
 
-class _OnBoardingPageState extends State<OnBoardingPage> {
-  final introKey = GlobalKey<IntroductionScreenState>();
-
-  void _onIntroEnd(context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HomePage()),
-    );
-  }
-
- 
+class HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  final GlobalKey<ScaffoldState> _globalKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 19.0);
-    const pageDecoration = const PageDecoration(
-      titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: bodyStyle,
-      descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Colors.white,
-      imagePadding: EdgeInsets.zero,
-    );
-
-    return IntroductionScreen(
-      key: introKey,
-      pages: [
-        PageViewModel(
-          title: "Fractional shares",
-          body:
-              "Instead of having to buy an entire share, invest any amount you want.",
-         // image: _buildImage('img1'),
-          decoration: PageDecoration(pageColor: Colors.redAccent),
-        ),
-        PageViewModel(
-          title: "Learn as you go",
-          body:
-              "Download the Stockpile app and master the market with our mini-lesson.",
-          //image: _buildImage('img2'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Kids and teens",
-          body:
-              "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-         // image: _buildImage('img3'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Another title page",
-          body: "Another beautiful body text for this example onboarding",
-          //image: _buildImage('img2'),
-          footer: RaisedButton(
-            onPressed: () {
-              introKey.currentState?.animateScroll(0);
-            },
-            child: const Text(
-              'FooButton',
-              style: TextStyle(color: Colors.white),
-            ),
-            color: Colors.lightBlue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-          ),
-          decoration: pageDecoration,
-        ),
-       
-      ],
-      onDone: () => _onIntroEnd(context),
-      //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
-      showSkipButton: true,
-      skipFlex: 0,
-      nextFlex: 0,
-      skip: const Text('Skip'),
-      next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
-      dotsDecorator: const DotsDecorator(
-        size: Size(10.0, 10.0),
-        color: Color(0xFFBDBDBD),
-        activeSize: Size(22.0, 10.0),
-        activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
-        ),
+    // TODO: implement build
+    return Scaffold(
+      key: _globalKey,
+      body: SKOnboardingScreen(
+        bgColor: Colors.white,
+        themeColor: const Color(0xFFf74269),
+        pages: pages,
+        skipClicked: (value) {
+          value.endsWith(pages.last.toString());
+        },
+        getStartedClicked: (value) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => LOgIn()));
+        },
       ),
     );
   }
+
+  final pages = [
+    SkOnboardingModel(
+        title: 'Best Deishes',
+        description:
+            'Easily find your grocery items and you will get delivery in wide range',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/img1.PNG'),
+    SkOnboardingModel(
+        title: 'Cheap Price',
+        description:
+            'Easily find your grocery items and you will get delivery in wide range',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/im2.PNG'),
+    SkOnboardingModel(
+        title: 'Perfect Serving',
+        description: 'Pay for order using credit or debit card',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/img3.PNG'),
+    SkOnboardingModel(
+        title: 'Relexed Atmosphere',
+        description: 'Pay for order using credit or debit card',
+        titleColor: Colors.black,
+        descripColor: const Color(0xFF929794),
+        imagePath: 'assets/img4.PNG'),
+  ];
 }
