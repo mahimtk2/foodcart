@@ -4,6 +4,8 @@ import 'package:foodorder/authentication/loginform/formfield.dart';
 import 'package:foodorder/authentication/loginform/signinbutton.dart';
 
 class LogIn extends StatelessWidget {
+  Function toggleMethod;
+  LogIn({@required this.toggleMethod});
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,50 +33,56 @@ class LogIn extends StatelessWidget {
                 child: Image.asset('assets/icon_logo.png'),
               ),
               BoxFormField(),
-             Padding(
-          padding: EdgeInsets.only(left: 190),
-          child: InkWell(
-            child: Text(
-              "Forgot Password",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
-            ),
-            onTap: () {},
-          ),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        SignInButton(button_text: "Sign In",),
-        SizedBox(
-          height: 0,
-        ),
-        Fa_Gooogle_Btn(fb: "Sign In",goo: "Sign In",),
-        SizedBox(
-          height: 35,
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 80, right: 20),
-          child: Container(
-            child: Row(
-              children: [
-                Text("New in FoodCart App?",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                InkWell(
+              Padding(
+                padding: EdgeInsets.only(left: 190),
+                child: InkWell(
+                  child: Text(
+                    "Forgot Password",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.green),
+                  ),
                   onTap: () {},
-                  child: Text("Sign Up",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15)),
-                )
-              ],
-            ),
-          ),
-        )
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SignInButton(
+                button_text: "Sign In",
+              ),
+              SizedBox(
+                height: 0,
+              ),
+              Fa_Gooogle_Btn(
+                fb: "Sign In",
+                goo: "Sign In",
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 80, right: 20),
+                child: Container(
+                  child: Row(
+                    children: [
+                      Text("New in FoodCart App?",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      InkWell(
+                        onTap: () {
+                          toggleMethod();
+                        },
+                        child: Text("Sign Up",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15)),
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           )),
     );
   }
 }
-

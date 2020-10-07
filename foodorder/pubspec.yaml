@@ -25,6 +25,10 @@ dependencies:
     sdk: flutter
   sk_onboarding_screen: ^1.0.1
   splash_screen_view: ^1.0.1
+  firebase_auth:
+  firebase_core:
+  cloud_firestore:
+  provider: ^4.3.2+2
   
 
 

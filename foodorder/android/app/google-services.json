@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "253103109060",
+    "firebase_url": "https://foodcart-c68da.firebaseio.com",
+    "project_id": "foodcart-c68da",
+    "storage_bucket": "foodcart-c68da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253103109060:android:c5c00fc35790c8245bea91",
+        "android_client_info": {
+          "package_name": "com.example.foodorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253103109060-mr0ubpqolc7nckr4iljmjrnhldpqugk6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9sTY3XobkdhdDEpjHRO2ktK2XMmUMvtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253103109060-mr0ubpqolc7nckr4iljmjrnhldpqugk6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
