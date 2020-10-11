@@ -1,9 +1,13 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:foodorder/authentication/firebase/firebase_auth.dart';
+import 'package:foodorder/authentication/log_in_page.dart';
 import 'package:foodorder/authentication/loginform/fbgooglebutton.dart';
 import 'package:foodorder/authentication/loginform/formfield.dart';
 import 'package:foodorder/authentication/loginform/signinbutton.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:toast/toast.dart';
 
 class SignUp extends StatefulWidget {
   Function toogleMethod;
@@ -19,6 +23,7 @@ class _SignUpState extends State<SignUp> {
   String email = "";
   String password = "";
   String error = '';
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -55,7 +60,8 @@ class _SignUpState extends State<SignUp> {
                         padding: EdgeInsets.all(10),
                         child: TextFormField(
                           validator: (value) {
-                            return !(value.contains("@")&&value.contains(".com"))
+                            return !(value.contains("@") &&
+                                    value.contains(".com"))
                                 ? "please enter valid email"
                                 : null;
                           },
@@ -119,18 +125,24 @@ class _SignUpState extends State<SignUp> {
                   child: Container(
                       height: 50,
                       //color: Colors.green,
-                      child:
-                      
-                       Material(
+                      child: Material(
                         child: MaterialButton(
-
-                          
                             onPressed: () async {
                               if (_formKey.currentState.validate()) {
                                 dynamic result = await _auth
                                     .createUseremailPass(email, password);
+                                setState(() {
+                                  loading = true;
+                                });
+                                Toast.show("Account Successfully created", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            LogIn(toggleMethod: null)));
                                 if (result == null) {
                                   setState(() {
+                                    loading = false;
                                     error =
                                         "please enter valid email & password";
                                   });
@@ -144,8 +156,7 @@ class _SignUpState extends State<SignUp> {
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(20),
                         shadowColor: Colors.green,
-                      )
-                      ),
+                      )),
                 ),
               ),
               SizedBox(

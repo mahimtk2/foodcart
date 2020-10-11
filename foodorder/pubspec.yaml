@@ -29,6 +29,8 @@ dependencies:
   firebase_core:
   cloud_firestore:
   provider: ^4.3.2+2
+  flutter_spinkit: 
+  toast: 
   
 
 

@@ -21,7 +21,11 @@ class _MainPageState extends State<MainPage> {
           child: Scaffold(
            // resizeToAvoidBottomInset: false,
         appBar: AppBar(title: const Text('Home')),
-        body: Food()
+        body: Column(
+          children: [
+            Food(),
+          ],
+        )
       ),
     );
   }

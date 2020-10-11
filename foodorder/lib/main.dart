@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:foodorder/authentication/firebase/firebase_auth.dart';
-import 'package:foodorder/screen/loading_screen.dart';
+import 'package:foodorder/screen/start_page.dart';
 import 'package:provider/provider.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 //import 'package:flare_splash_screen/flare_splash_screen.dart';

@@ -3,6 +3,7 @@ import 'package:foodorder/authentication/firebase/firebase_auth.dart';
 import 'package:foodorder/authentication/loginform/fbgooglebutton.dart';
 import 'package:foodorder/authentication/loginform/formfield.dart';
 import 'package:foodorder/authentication/loginform/signinbutton.dart';
+import 'package:foodorder/screen/loading/circular_loadind.dart';
 
 class LogIn extends StatefulWidget {
   Function toggleMethod;
@@ -18,9 +19,10 @@ class _LogInState extends State<LogIn> {
   String email = "";
   String password = "";
   String error = '';
+  bool loading=false;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return loading?SpinKit(): SafeArea(
       child: Scaffold(
           resizeToAvoidBottomPadding: false,
           appBar: AppBar(
@@ -124,8 +126,12 @@ class _LogInState extends State<LogIn> {
                               if (_formKey.currentState.validate()) {
                                 dynamic result = await _auth
                                     .signInWithEmailPass(email, password);
+                                setState(() {
+                                  loading = true;
+                                });
                                 if (result == null) {
                                   setState(() {
+                                    loading = false;
                                     error =
                                         "please enter valid email & password";
                                   });
